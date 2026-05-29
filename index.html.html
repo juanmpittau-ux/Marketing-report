@@ -1,0 +1,342 @@
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+<!--
+:root
+	{}
+*
+	{box-sizing:border-box;
+	margin:0;
+	padding:0}
+html, body
+	{}
+body
+	{display:flex;
+	min-height:100vh}
+.side
+	{width:250px;
+	flex-shrink:0;
+	display:flex;
+	flex-direction:column;
+	position:sticky;
+	top:0;
+	height:100vh;
+	z-index:5}
+.brand
+	{padding:22px 20px 16px}
+.logo
+	{display:flex;
+	align-items:center}
+.star
+	{width:32px;
+	height:32px;
+	flex-shrink:0}
+.brand h1
+	{font-size:14.5px;
+	font-weight:800;
+	letter-spacing:.4px;
+	line-height:1.1}
+.brand .sub
+	{font-size:9.5px;
+	letter-spacing:2px;
+	margin-top:3px;
+	text-transform:uppercase}
+.nav
+	{padding:12px 11px;
+	flex:1;
+	overflow-y:auto}
+.nav .grp
+	{font-size:9px;
+	letter-spacing:1.5px;
+	text-transform:uppercase;
+	padding:13px 11px 6px}
+.nav a
+	{display:flex;
+	align-items:center;
+	padding:10px 12px;
+	border-radius:9px;
+	text-decoration:none;
+	font-size:13px;
+	font-weight:500}
+.nav a:hover
+	{background:rgba(255,255,255,.03)}
+.nav a.active
+	{color:#fff}
+.nav a .ic
+	{width:16px;
+	text-align:center;
+	font-size:13px;
+	opacity:.85}
+.side .foot
+	{padding:13px 16px}
+.loadbtn
+	{display:flex;
+	align-items:center;
+	justify-content:center;
+	width:100%;
+	padding:10px;
+	border-radius:9px;
+	background:rgba(0,163,224,.1);
+	border:1px solid rgba(0,163,224,.3);
+	font-size:11.5px;
+	font-weight:600}
+.src
+	{font-size:9px;
+	margin-top:9px;
+	text-align:center;
+	line-height:1.5}
+.main
+	{flex:1;
+	min-width:0;
+	z-index:1}
+.topbar
+	{position:sticky;
+	top:0;
+	z-index:4;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding:16px 32px;
+	background:rgba(10,13,18,.85)}
+.topbar .ttl
+	{font-size:20px;
+	font-weight:800;
+	letter-spacing:-.4px}
+.topbar .crumb
+	{font-size:10px;
+	letter-spacing:1px;
+	margin-top:2px;
+	text-transform:uppercase}
+.filters
+	{display:flex;
+	align-items:center}
+.fl
+	{display:flex;
+	flex-direction:column}
+.fl label
+	{font-size:8.5px;
+	letter-spacing:1px;
+	text-transform:uppercase;
+	padding-left:2px}
+.fl select
+	{font-size:12px;
+	padding:8px 11px;
+	border-radius:9px;
+	outline:none;
+	min-width:120px}
+.scope
+	{font-size:10px;
+	padding:6px 12px;
+	border-radius:18px;
+	background:rgba(0,212,160,.1);
+	border:1px solid rgba(0,212,160,.25);
+	white-space:nowrap}
+.wrap
+	{padding:24px 32px 60px}
+.page
+	{display:none}
+.page.show
+	{display:block}
+.grid
+	{display:grid}
+.span2
+	{}
+.card
+	{padding:18px 20px;
+	overflow:hidden}
+.card .head
+	{display:flex;
+	align-items:flex-start;
+	justify-content:space-between;
+	margin-bottom:14px}
+.card .head .t
+	{font-size:14px;
+	font-weight:700;
+	letter-spacing:-.2px}
+.card .head .d
+	{font-size:9.5px;
+	margin-top:3px;
+	text-transform:uppercase;
+	letter-spacing:.5px}
+.card .head .sheet
+	{font-size:8.5px;
+	border:1px solid rgba(0,163,224,.3);
+	background:rgba(0,163,224,.07);
+	padding:3px 7px;
+	border-radius:6px;
+	white-space:nowrap}
+.cwrap
+	{height:280px;
+	margin-top:6px}
+.cwrap.sm
+	{height:220px}
+.cwrap.tall
+	{height:340px}
+.tbl
+	{width:100%;
+	border-collapse:collapse;
+	font-size:12px}
+.tbl th
+	{text-align:left;
+	font-size:9px;
+	letter-spacing:.8px;
+	text-transform:uppercase;
+	padding:8px 10px;
+	font-weight:500;
+	white-space:nowrap}
+.tbl th.num, .tbl td.num
+	{text-align:right}
+.tbl td
+	{padding:9px 10px;
+	border-bottom:1px solid rgba(31,41,53,.45);
+	white-space:nowrap}
+.tbl tr:last-child td
+	{border-bottom:none}
+.tbl tr:hover td
+	{background:rgba(255,255,255,.018)}
+.tbl td.lbl
+	{color:#fff;
+	font-weight:600}
+.tbl tr.totalrow td
+	{color:#fff;
+	font-weight:700;
+	background:rgba(0,163,224,.05)}
+.tbl td.hi
+	{background:rgba(0,163,224,.1);
+	color:#fff;
+	font-weight:700}
+.tscroll
+	{overflow-x:auto}
+.tnote
+	{font-size:9px;
+	margin-top:10px;
+	line-height:1.5}
+.section-h
+	{font-size:12px;
+	font-weight:700;
+	margin:26px 0 13px;
+	letter-spacing:.3px;
+	display:flex;
+	align-items:center;
+	text-transform:uppercase}
+.section-h .mono
+	{font-size:9px;
+	font-weight:400}
+.hero
+	{border-radius:16px;
+	padding:34px 36px;
+	overflow:hidden;
+	margin-bottom:6px}
+.hero .ey
+	{font-size:10.5px;
+	letter-spacing:3px;
+	text-transform:uppercase}
+.hero h2
+	{font-size:32px;
+	font-weight:900;
+	letter-spacing:-1px;
+	margin:12px 0;
+	line-height:1.08}
+.hero p
+	{font-size:13.5px;
+	line-height:1.7;
+	max-width:560px}
+.kpi .lbl
+	{font-size:11px;
+	font-weight:500;
+	text-transform:uppercase;
+	letter-spacing:.5px}
+.kpi .val
+	{font-size:30px;
+	font-weight:800;
+	letter-spacing:-.5px;
+	margin-top:8px;
+	line-height:1;
+	font-variant-numeric:tabular-nums}
+.kpi .meta
+	{margin-top:9px;
+	font-size:11px}
+.kpi
+	{display:flex;
+	flex-direction:column;
+	justify-content:center}
+.stack
+	{display:flex;
+	flex-direction:column}
+.stack .kpi
+	{flex:0 0 auto;
+	padding:18px 20px}
+.cvgrid
+	{}
+.cvgrid .left, .cvgrid .right
+	{display:flex;
+	flex-direction:column}
+.navtiles
+	{display:grid;
+	margin-top:18px}
+.tile
+	{border-radius:14px;
+	padding:22px;
+	overflow:hidden}
+.tile .tt
+	{font-size:16px;
+	font-weight:800;
+	letter-spacing:-.3px}
+.tile .td
+	{font-size:10.5px;
+	margin-top:8px;
+	line-height:1.5}
+.tile .ta
+	{font-size:11.5px;
+	margin-top:14px;
+	font-weight:600}
+.slicer
+	{display:flex;
+	flex-wrap:wrap;
+	padding:8px 0}
+.chip
+	{font-size:11px;
+	padding:8px 14px;
+	border-radius:8px}
+.chip.active
+	{color:#fff;
+	background:rgba(0,163,224,.12)}
+-->
+</style>
+</head>
+<body>
+<div class="brand">
+<div class="logo">
+<div>
+<h1>Marketing Report</h1>
+<div class="sub">MBF · 2026</div>
+</div>
+</div>
+</div>
+<div class="grp">Resumen</div>
+<a class="active"><span class="ic">◆</span><span class="t">Introducción</span></a>
+<a><span class="ic">▣</span><span class="t">Vehículos Comerciales</span></a>
+<div class="grp">Análisis MBF</div>
+<a><span class="ic">▤</span><span class="t">Camiones</span></a> <a><span class="ic">▥</span><span class="t">Buses</span></a>
+<div class="grp">Mercado</div>
+<a><span class="ic">◈</span><span class="t">Competencia · Camiones</span></a> <a>
+<span class="ic">◇</span><span class="t">Competencia · Buses</span></a>
+<div class="foot"><label class="loadbtn"><input type="file" id="xf" accept=".xlsx">⟳ Cargar Excel</label>
+<div class="src" id="srcInfo">Datos: 2026 (embebidos)</div>
+</div>
+<div class="topbar">
+<div>
+<div class="ttl" id="pgTitle">Introducción</div>
+<div class="crumb" id="crumb">Mercedes-Benz Financiera / Reporte de Marketing</div>
+</div>
+<div class="filters">
+<div class="fl"><label>Año</label><select id="selYear"></select></div>
+<div class="fl"><label>Mes</label><select id="selMonth"></select></div>
+<div class="scope" id="scope">Acumulado YTD</div>
+</div>
+</div>
+<div class="wrap" id="content"></div>
+</body>
+</html>
